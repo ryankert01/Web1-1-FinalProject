@@ -1,0 +1,4 @@
+1.resize the routelle machine(smaller)
+2.add things{
+    
+}
