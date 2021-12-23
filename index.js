@@ -1,7 +1,8 @@
+// 輪盤
 var startAngle = 0;
 var arc = Math.PI / 18.5;
 var spinTimeout = null;
-var spinsize = 320;
+var spinsize = 150;
 
 var spinArcStart = 10;
 var spinTime = 0;
@@ -35,8 +36,8 @@ function getText(i) {
 function drawRouletteWheel() {
   var canvas = document.getElementById("wheelcanvas");
   if (canvas.getContext) {
-    var outsideRadius = 250; //240
-    var textRadius = 210; //200
+    var outsideRadius = 145; //240
+    var textRadius = 125; //200
     var insideRadius = 100; //165
 
     ctx = canvas.getContext("2d");
@@ -45,7 +46,7 @@ function drawRouletteWheel() {
     ctx.strokeStyle = "black";
     ctx.lineWidth = 3;
 
-    ctx.font = 'bold 35px Avenir Next, sans-serif';
+    ctx.font = 'bold 20px Avenir Next, sans-serif'; //輪盤數字大小
 
     for (var i = 0; i < 37; i++) {
       var angle = startAngle + i * arc;
@@ -81,21 +82,21 @@ function drawRouletteWheel() {
     }
 
     //Arrow
-    ctx.fillStyle = "gold";
+    ctx.fillStyle = "yellow";
     ctx.beginPath();
-    ctx.moveTo(spinsize - 8, spinsize - (outsideRadius + 10));
-    ctx.lineTo(spinsize + 8, spinsize - (outsideRadius + 10));
-    ctx.lineTo(spinsize + 8, spinsize - (outsideRadius - 10));
-    ctx.lineTo(spinsize + 18, spinsize - (outsideRadius - 10));
-    ctx.lineTo(spinsize + 0, spinsize - (outsideRadius - 26));
-    ctx.lineTo(spinsize - 18, spinsize - (outsideRadius - 10));
-    ctx.lineTo(spinsize - 8, spinsize - (outsideRadius - 10));
-    ctx.lineTo(spinsize - 8, spinsize - (outsideRadius + 10));
+    ctx.moveTo(spinsize - 4, spinsize - (outsideRadius + 5));
+    ctx.lineTo(spinsize + 4, spinsize - (outsideRadius + 5));
+    ctx.lineTo(spinsize + 4, spinsize - (outsideRadius - 5));
+    ctx.lineTo(spinsize + 9, spinsize - (outsideRadius - 5));
+    ctx.lineTo(spinsize + 0, spinsize - (outsideRadius - 13));
+    ctx.lineTo(spinsize - 9, spinsize - (outsideRadius - 5));
+    ctx.lineTo(spinsize - 4, spinsize - (outsideRadius - 5));
+    ctx.lineTo(spinsize - 4, spinsize - (outsideRadius + 5));
     ctx.fill();
   }
 }
 
-function spin() {
+function spin() { //按鈕
   spinAngleStart = Math.random() * 10 + 10;
   spinTime = 0;
   spinTimeTotal = Math.random() * 3 + 4 * 1618;
@@ -150,3 +151,5 @@ function easeOut(t, b, c, d) {
 }
 
 draw();
+
+//end輪盤
