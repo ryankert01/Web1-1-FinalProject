@@ -7,21 +7,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roulette</title>
     <link rel="stylesheet" href="style.css">
+
+
 </head>
 
-<body style="background-color: rgba(255, 255, 255, 0.85)">
+<body style="background-color: rgba(167, 161, 161, 0.85)">
 
     <h1 id="realh1">The Game of Roulette</h1>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <canvas id="wheelcanvas" width="600" height="600"></canvas>
+    <canvas id="wheelcanvas" width="300" height="300"></canvas>
 
     <button type="button" onclick="spin()"
-        style="font-family: fantasy; margin: 4px; width: 120px; height: 120px; background-color: rgb(197, 25, 25); font-size: 53px; border-radius: 50%;">Start</button>
+        style="font-family: fantasy; margin: 4px; width: 90px; height: 90px; background-color: rgb(197, 25, 25); font-size: 40px; border-radius: 50%;">Start</button>
 
 
     <script src="index.js"></script>
+
+
+    <div style="position: absolute; top: 180px; left: 520px;">
+        <!-- 投注盤 -->
+
+        <table border="9" bgcolor="white" width="750" height="350">
+
+
+            <tr>
+                <td rowspan="3" onclick="putmoney(this)">0</td>
+                <td onclick="putmoney(this)">1</td>
+                <td onclick="putmoney(this)">4</td>
+                <td onclick="putmoney(this)">7</td>
+                <td onclick="putmoney(this)">10</td>
+                <td onclick="putmoney(this)">13</td>
+                <td onclick="putmoney(this)">16</td>
+                <td onclick="putmoney(this)">19</td>
+                <td onclick="putmoney(this)">22</td>
+                <td onclick="putmoney(this)">25</td>
+                <td onclick="putmoney(this)">28</td>
+                <td onclick="putmoney(this)">31</td>
+                <td onclick="putmoney(this)">34</td>
+                <td onclick="putmoney(this)">2 to 1</td>
+            </tr>
+
+            <tr>
+                <td onclick="putmoney(this)">2</td>
+                <td onclick="putmoney(this)">4</td>
+                <td onclick="putmoney(this)">8</td>
+                <td onclick="putmoney(this)">11</td>
+                <td onclick="putmoney(this)">14</td>
+                <td onclick="putmoney(this)">17</td>
+                <td onclick="putmoney(this)">20</td>
+                <td onclick="putmoney(this)">23</td>
+                <td onclick="putmoney(this)">26</td>
+                <td onclick="putmoney(this)">29</td>
+                <td onclick="putmoney(this)">32</td>
+                <td onclick="putmoney(this)">35</td>
+                <td onclick="putmoney(this)">2 to 1</td>
+            </tr>
+
+            <tr>
+                <td onclick="putmoney(this)">3</td>
+                <td onclick="putmoney(this)">6</td>
+                <td onclick="putmoney(this)">9</td>
+                <td onclick="putmoney(this)">12</td>
+                <td onclick="putmoney(this)">15</td>
+                <td onclick="putmoney(this)">18</td>
+                <td onclick="putmoney(this)">21</td>
+                <td onclick="putmoney(this)">24</td>
+                <td onclick="putmoney(this)">27</td>
+                <td onclick="putmoney(this)">30</td>
+                <td onclick="putmoney(this)">33</td>
+                <td onclick="putmoney(this)">36</td>
+                <td onclick="putmoney(this)">2 to 1</td>
+            </tr>
+
+            <tr>
+                <td rowspan="2"></td>
+                <td colspan="4" onclick="putmoney(this)">1st 12</td>
+                <td colspan="4" onclick="putmoney(this)">2st 12</td>
+                <td colspan="4" onclick="putmoney(this)">3st 12</td>
+                <td rowspan="2"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" onclick="putmoney(this)">1 to 18</td>
+                <td colspan="2" onclick="putmoney(this)">EVEN</td>
+
+                <td colspan="2" onclick="putmoney(this)" style="background-color: red;">RED</td>
+                <td colspan="2" onclick="putmoney(this)" style="background-color: black;">BLACK</td>
+
+                <td colspan="2" onclick="putmoney(this)">ODD</td>
+                <td colspan="2" onclick="putmoney(this)">19 to 36</td>
+            </tr>
+
+            <table>
+
+    </div>
+
+
 
 </body>
 
