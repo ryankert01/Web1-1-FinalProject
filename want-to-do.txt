@@ -1,4 +1,0 @@
-1.table
-2.button
-//
-3.algorithm
