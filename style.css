@@ -357,6 +357,14 @@ div#NewPlayer:hover {
     width: 50px;
 }
 
+
+ #box{         /* 投注表 */
+
+background-color: #a3aee6;
+border-radius: 10px;
+
+}
+
 /*
       Set up each row to have a different animation duration
       and alternating y-axis rotation directions.

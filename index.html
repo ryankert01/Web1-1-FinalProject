@@ -4,13 +4,12 @@
 
 <head>
 	<meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Roulette</title>
 	<link rel="stylesheet" href="test.css">
 	<link rel="stylesheet" href="style.css">
 </head>
-
 
 
 <body style="background-color: rgba(167, 161, 161, 0.85)">
@@ -33,7 +32,8 @@
 
 				<table class="number">
 					<tr id="first_row">
-						<td rowspan="3" id="0" onclick="putmoney(this)" style="background-color:green">0</td>
+						<td rowspan="3" id="0" onclick="putmoney(this)" onmouseover="mouseovernum(this)"
+							onmouseout="mouseout(0,36)" style="background-color:green">0</td>
 					</tr>
 					<tr id="second_row"></tr>
 					<tr id="third_row"></tr>
@@ -41,44 +41,43 @@
 
 					<tr id="fourth_row">
 						<td height="5px" rowspan="2" style="background-color:rgb(0, 99, 0)"></td>
-						<td height="5px" id="40" onclick="putmoney(this)" colspan="4"
-							style="background-color:green">
+						<td height="5px" id="40" onclick="putmoney(this)" onmouseover="mouseover(1,12)"
+							onmouseout="mouseout(1,12)" colspan="4" style="background-color:green">
 							1st
 							12</td>
-						<td height="5px" id="41" onclick="putmoney(this)" colspan="4"
-							style="background-color:green">
+						<td height="5px" id="41" onclick="putmoney(this)" onmouseover="mouseover(13,24)"
+							onmouseout="mouseout(13,24)" colspan="4" style="background-color:green">
 							2nd
 							12</td>
-						<td height="5px" id="42" onclick="putmoney(this)" colspan="4"
-							style="background-color:green">
+						<td height="5px" id="42" onclick="putmoney(this)" onmouseover="mouseover(25,36)"
+							onmouseout="mouseout(25,36)" colspan="4" style="background-color:green">
 							3rd
 							12</td>
 						<td height="5px" rowspan="2" style="background-color:rgb(0, 99, 0)"></td>
 					</tr>
 
 					<tr id="fifth_row">
-						<td height="5px" id="43" onclick="putmoney(this)" colspan="2"
-							style="background-color:green">
+						<td height="5px" id="43" onclick="putmoney(this)" onmouseover="mouseover(1,18)"
+							onmouseout="mouseout(1,18)" colspan="2" style="background-color:green">
 							1 to 18</td>
-						<td height="5px" id="45" onclick="putmoney(this)" colspan="2"
-							style="background-color:green">EVEN</td>
-						<td height="5px" id="47" onclick="putmoney(this)" colspan="2"
-							style="background-color:red;">RED</td>
-						<td height="5px" id="48" onclick="putmoney(this)" colspan="2"
-							style="background-color:black;">BLACK</td>
-						<td height="5px" id="46" onclick="putmoney(this)" colspan="2"
-							style="background-color:green">
+						<td height="5px" id="45" onclick="putmoney(this)" onmouseover="mouseoverelse(5)"
+							onmouseout="mouseout(1,36)" colspan="2" style="background-color:green">EVEN</td>
+						<td height="5px" id="47" onclick="putmoney(this)" onmouseover="mouseoverelse(5)"
+							onmouseout="mouseout(1,36)" colspan="2" style="background-color:red;">RED</td>
+						<td height="5px" id="48" onclick="putmoney(this)" onmouseover="mouseoverelse(4)"
+							onmouseout="mouseout(1,36)" colspan="2" style="background-color:black;">BLACK</td>
+						<td height="5px" id="46" onclick="putmoney(this)" onmouseover="mouseoverelse(4)"
+							onmouseout="mouseout(1,36)" colspan="2" style="background-color:green">
 							ODD</td>
-						<td height="5px" id="44" onclick="putmoney(this)" colspan="2"
-							style="background-color:green">19 to 36</td>
+						<td height="5px" id="44" onclick="putmoney(this)" onmouseover="mouseover(19,36)"
+							onmouseout="mouseout(19,36)" colspan="2" style="background-color:green">19 to 36</td>
 					</tr>
 				</table>
 
 			</div>
 
 			<div id="box" style=" position: absolute; top: 490px;"></div> <!-- 投注表 -->
-			<div id="box2" style=" position: absolute; top: 490px; left:250px;"></div>
-
+			<!-- <div id="box2" style=" position: absolute; top: 490px; left:250px;"></div> -->
 
 
 			<p id="money" style="position: absolute; top: 400px; left: 900px;">剩餘金額: </p>
@@ -87,7 +86,7 @@
 
 			<!-- 籌碼 -->
 			<button type="button" onclick="selectCoin(this)" id="coin10"
-				style="font-family: fantasy; margin: 4px; width: 80px; height: 80px; background-color: rgb(204, 204, 204); font-size: 40px; border-radius: 50%;position: absolute; top: 500; left: 550;   border: 3px solid black;">10</button>
+				style="font-family: fantasy; margin: 4px; width: 80px; height: 80px; background-color: rgb(204, 204, 204); font-size: 40px; border-radius: 50%;position: absolute; top: 500; left: 550;   border: none;">10</button>
 			<button type="button" onclick="selectCoin(this)" id="coin25"
 				style="font-family: fantasy; margin: 4px; width: 80px; height: 80px; background-color: rgb(204, 204, 204); font-size: 40px; border-radius: 50%;position: absolute; top: 500; left: 650;  border:none;">25</button>
 			<button type="button" onclick="selectCoin(this)" id="coin50"

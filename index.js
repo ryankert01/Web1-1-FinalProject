@@ -205,9 +205,19 @@ function drawTable() {
         temp = "" + i;
         newcell.style.backgroundColor = color;
         newcell.id = temp;
+
         newcell.onclick = function () { //newcell.onclick = putmoney 不能取得this的資訊
             putmoney(this);
         }
+
+        newcell.onmouseover = function () { //newcell.onclick = putmoney 不能取得this的資訊
+            mouseovernum(this);
+        }
+
+        newcell.onmouseout = function () { //newcell.onclick = putmoney 不能取得this的資訊
+            mouseout(0, 36);
+        }
+
         newcell.innerHTML = temp;
     }
 
@@ -219,6 +229,12 @@ function drawTable() {
     newcell.onclick = function () {
         putmoney(this);
     }
+    newcell.onmouseover = function () {
+        mouseoverelse(3);
+    }
+    newcell.onmouseout = function () {
+        mouseout(1, 36);
+    }
 
     table = document.getElementById("second_row");
     newcell = table.insertCell(nums);
@@ -227,6 +243,12 @@ function drawTable() {
     newcell.id = "38";
     newcell.onclick = function () {
         putmoney(this);
+    }
+    newcell.onmouseover = function () {
+        mouseoverelse(2);
+    }
+    newcell.onmouseout = function () {
+        mouseout(1, 36);
     }
 
     table = document.getElementById("first_row");
@@ -237,9 +259,13 @@ function drawTable() {
     newcell.onclick = function () {
         putmoney(this);
     }
+    newcell.onmouseover = function () {
+        mouseoverelse(1);
+    }
+    newcell.onmouseout = function () {
+        mouseout(1, 36);
+    }
 }
-
-
 
 //1 dimentional array
 //arr[0] = none;
@@ -263,7 +289,7 @@ var arr = new Array(50).fill(0);
 function putmoney(obj) { //數字押注
 
 
-    var num = new Number(obj.id);
+    var num = new Number(obj.id); //知道投注的東西
     var temp, checkcoin;
 
     //readCoin as choison coin
@@ -324,42 +350,41 @@ function checkwin() {
     var text = document.getElementById("money");
 
     var winnum = win_number;
-    if(winnum > 0){
+    if (winnum > 0) {
         total_money += arr[winnum] * 36;
 
-    if (isOdd(winnum)) {
-        total_money += arr[46] * 2;
-        total_money += arr[48] * 2;
-    } else {
-        total_money += arr[47] * 2;
-        total_money += arr[49] * 2;
+        if (isOdd(winnum)) {
+            total_money += arr[46] * 2;
+            total_money += arr[48] * 2;
+        } else {
+            total_money += arr[47] * 2;
+            total_money += arr[49] * 2;
+        }
+
+        if (winnum < 19) {
+            total_money += arr[43] * 2;
+        } else {
+            total_money += arr[44] * 2;
+        }
+
+        //row
+        if (whichRow(winnum) == 1) {
+            total_money += arr[37] * 3;
+        } else if (whichRow(winnum) == 2) {
+            total_money += arr[38] * 3;
+        } else {
+            total_money += arr[39] * 3;
+        }
+
+        if (winnum < 13) {
+            total_money += arr[40] * 3;
+        } else if (winnum > 24) {
+            total_money += arr[42] * 3;
+        } else {
+            total_money += arr[41] * 3;
+        }
     }
 
-    if (winnum < 19) {
-        total_money += arr[43] * 2;
-    } else {
-        total_money += arr[44] * 2;
-    }
-
-    //row
-    if (whichRow(winnum) == 1) {
-        total_money += arr[37] * 3;
-    } else if (whichRow(winnum) == 2) {
-        total_money += arr[38] * 3;
-    } else {
-        total_money += arr[39] * 3;
-    }
-
-    if(winnum < 13){
-        total_money += arr[40] * 3;
-    }else if(winnum > 24){
-        total_money += arr[42] * 3;
-    }
-    else{
-        total_money += arr[41] * 3;
-    }
-    }
-    
 
     text = document.getElementById("money");
     text.innerHTML = "剩餘金額: " + total_money;
@@ -461,15 +486,10 @@ function deleteElementById(id) //投注表全清除
 
 
 // function checkOtherWin(obj) {
-
-
-
 //     text = document.getElementById("money");
 //     text.innerHTML = "剩餘金額: " + total_money;
-
 //     clean();
 // }
-
 
 /////////////////////////////////////////////   投注表相關
 
@@ -520,5 +540,46 @@ function selectCoin(obj) {
     }
 }
 
+
+function mouseover(first, last) { //單一數字除外
+    for (var i = first; i <= last; i++) {
+        document.getElementById("" + i + "").style.opacity = "0.3";
+    }
+}
+
+function mouseovernum(number) { //單一數字
+    document.getElementById("" + number.id + "").style.opacity = "0.3";
+}
+
+function mouseoverelse(row) {
+    if (row == 3) { //第三行2to1
+        for (var i = 3; i <= 36; i += 3) {
+            document.getElementById("" + i + "").style.opacity = "0.3";
+        }
+    } else if (row == 2) { //第二行2to1
+        for (var i = 2; i <= 35; i += 3) {
+            document.getElementById("" + i + "").style.opacity = "0.3";
+        }
+    } else if (row == 1) { //第一行2to1
+        for (var i = 1; i <= 34; i += 3) {
+            document.getElementById("" + i + "").style.opacity = "0.3";
+        }
+    } else if (row == 4) { //odd  black
+        for (var i = 1; i <= 35; i += 2) {
+            document.getElementById("" + i + "").style.opacity = "0.3";
+        }
+    } else if (row == 5) { //odd  black
+        for (var i = 2; i <= 36; i += 2) {
+            document.getElementById("" + i + "").style.opacity = "0.3";
+        }
+    }
+
+}
+
+function mouseout(first, last) {
+    for (var i = first; i <= last; i++) {
+        document.getElementById("" + i + "").style.opacity = "1";
+    }
+}
 
 draw();
